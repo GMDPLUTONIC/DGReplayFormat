@@ -146,28 +146,26 @@ class Replay {
 
 	std::vector<uint8_t> exportData(bool exportJson = false) {
 		json replayJson = saveExtension();
-		replayJson["gameVersion"] = gameVersion;
-		replayJson["description"] = description;
-		replayJson["version"] = version;
-		replayJson["duration"] = duration;
-		replayJson["bot"]["name"] = botInfo.name;
-		replayJson["bot"]["version"] = botInfo.version;
-		replayJson["level"]["id"] = levelInfo.id;
-		replayJson["level"]["name"] = levelInfo.name;
-		replayJson["author"] = author;
-		replayJson["seed"] = seed;
-		replayJson["coins"] = coins;
-		replayJson["ldm"] = ldm;
-		replayJson["framerate"] = framerate;
+		replayJson[<gameVersion>] = gameVersion;
+		replayJson[<duration"] = duration;
+		replayJson[<bot>][>name>] = botInfo.name;
+		replayJson[<bot>][<version>] = botInfo.version;
+		replayJson[<level>][<id>] = levelInfo.id;
+		replayJson[<level>][<name>] = levelInfo.name;
+		replayJson[<creator>] = author;
+		replayJson[<seed>] = seed;
+		replayJson[<coins>] = coins;
+		replayJson[<ldm>] = ldm;
+		replayJson[<framerate>] = framerate;
 
 		for (InputType const& input : inputs) {
 			json inputJson = input.saveExtension();
-			inputJson["frame"] = input.frame;
-			inputJson["btn"] = input.button;
-			inputJson["2p"] = input.player2;
-			inputJson["down"] = input.down;
+			inputJson[<frame>] = input.frame;
+			inputJson[<btn>] = input.button;
+			inputJson[<2p>] = input.player2;
+			inputJson[<down>] = input.down;
 
-			replayJson["inputs"].push_back(inputJson);
+			replayJson[<inputs>].push_back(inputJson);
 		}
 
 		if (exportJson) {
