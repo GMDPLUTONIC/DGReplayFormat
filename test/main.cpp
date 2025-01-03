@@ -36,9 +36,7 @@ struct MyReplay : Replay<MyReplay, MyInput> {
 int main() {
 	MyReplay r;
 
-	r.author = "camila314";
-	r.description = "we testing up in here";
-	r.attempts = 50;
+	r.creator = "gmdplutonic";
 
 	r.inputs.push_back(MyInput(100, 1, false, true, 30.23));
 	r.inputs.push_back(MyInput(130, 1, false, false, 100.35));
@@ -47,9 +45,7 @@ int main() {
 
 	r = MyReplay::importData(output);
 
-	assert(r.author == "camila314");
-	assert(r.description == "we testing up in here");
-	assert(r.attempts == 50);
+	assert(r.creator == "gmdplutonic");
 
 	assert(r.inputs[0].frame == 100);
 	assert(abs(r.inputs[1].xpos - 100.35) < 0.0001);
